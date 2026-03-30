@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends \
-            flatpak flatpak-builder
+            flatpak flatpak-builder elfutils
 
       - name: Add Flathub remote
         run: |
