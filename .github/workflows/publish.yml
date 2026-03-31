@@ -16,7 +16,9 @@ on:
       - "v*.*.*"
 
 jobs:
+  # Guard: only publish from the source repo, not OSP/OOC mirrors
   build:
+    if: github.repository == 'Interested-Deving-1896/lkm'
     name: Build distribution
     runs-on: ubuntu-latest
 
