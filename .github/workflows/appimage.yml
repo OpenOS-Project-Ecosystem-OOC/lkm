@@ -19,7 +19,7 @@ jobs:
             runner: ubuntu-22.04-arm
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install system dependencies
         run: |
@@ -34,7 +34,7 @@ jobs:
         run: bash pkg/appimage/build-appimage.sh
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: LKM-AppImage-${{ matrix.arch }}
           path: dist/LKM-*.AppImage
@@ -50,13 +50,13 @@ jobs:
 
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: LKM-AppImage-*
           merge-multiple: true
           path: dist/
 
       - name: Upload to release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: dist/LKM-*.AppImage
